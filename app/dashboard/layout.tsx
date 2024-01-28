@@ -14,7 +14,7 @@ type DataProps = {
   profileImage: string | undefined | null;
 }
 
-export async function getData({email, id, firstName, lastName, profileImage, }: DataProps) {
+async function getData({email, id, firstName, lastName, profileImage, }: DataProps) {
   noStore();
   const user = await prisma.user.findUnique({
     where: { id },
@@ -41,7 +41,7 @@ export async function getData({email, id, firstName, lastName, profileImage, }: 
 
 }
 
-export default async function DashboardLayout({children}: PropsWithChildren) {
+export default async function DashboardLayout({children}:{ children: React.ReactNode;}) {
   
   const {getUser} = getKindeServerSession();
   

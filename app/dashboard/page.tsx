@@ -13,13 +13,6 @@ type Props = {}
 
 async function getData(userId: string) {
   noStore();
-    // const data = await prisma.note.findMany({
-    //   where: { userId },
-    //   orderBy: {
-    //     createdAt: "desc"
-    //   }
-    // });
-    // return data;
 
     const data = await prisma.user.findUnique({
       where: {id: userId},

@@ -12,7 +12,7 @@ import { revalidatePath, unstable_noStore as noStore } from 'next/cache'
 
 type Props = {}
 
-export async function getData(userId: string) {
+async function getData(userId: string) {
   noStore()
   const data = await prisma.user.findUnique({
     where: { id: userId },
